@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 72c279ef80ed4d843a23cddd01f965e2
+timeCreated: 1475086361
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - wrog: {fileID: 1000011527784414, guid: 82c88b2834711d740a4e5ddf5ceafd74, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
