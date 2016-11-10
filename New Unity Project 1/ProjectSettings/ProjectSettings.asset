@@ -525,7 +525,7 @@ PlayerSettings:
   XboxOne::VR::enabledDevices: []
   iOS::VR::enabledDevices: []
   tvOS::VR::enabledDevices: []
-  cloudProjectId: 02476cdb-29c3-4e26-9798-e7d76a485f78
-  projectName: Wife Catcher (1)
+  cloudProjectId: 95f42183-afa2-4e2c-8a6e-bddb79aa6bf7
+  projectName: Wife Catcher
   organizationId: lwgacek
   cloudEnabled: 0

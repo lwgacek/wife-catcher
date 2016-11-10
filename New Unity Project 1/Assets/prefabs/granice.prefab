@@ -24,6 +24,7 @@ GameObject:
   - 61: {fileID: 61000011298313770}
   - 61: {fileID: 61000012044659260}
   - 61: {fileID: 61000013155035296}
+  - 111: {fileID: 111000013705635040}
   m_Layer: 8
   m_Name: granice
   m_TagString: Untagged
@@ -100,6 +101,21 @@ BoxCollider2D:
   m_Offset: {x: -8.939543, y: -0.0171175}
   serializedVersion: 2
   m_Size: {x: 0.25537872, y: 9.935263}
+--- !u!111 &111000013705635040
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010458070280}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 19e678d52d3145d459fe1739035f53e0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 19e678d52d3145d459fe1739035f53e0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!212 &212000010732394916
 SpriteRenderer:
   m_ObjectHideFlags: 1
