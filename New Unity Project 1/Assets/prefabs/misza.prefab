@@ -162,6 +162,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: f220149f1070c864f888aa5d5d089a7d, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: f220149f1070c864f888aa5d5d089a7d, type: 2}
+  - {fileID: 7400000, guid: 04edb2d931e9de6408fecc905bd7abab, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -198,6 +199,7 @@ MonoBehaviour:
   punkt: {fileID: 8300000, guid: 9c07af5892e95924fb907779ec26633b, type: 3}
   error: {fileID: 8300000, guid: 3b3b5f6d9c1ce924188f9d5b0c64ea75, type: 3}
   skok: {fileID: 8300000, guid: b6a130dc912b3844d833100eded5eac0, type: 3}
+  slow: {fileID: 8300000, guid: 9b56ce1ff317a3c43a65ca5f4ef191ce, type: 3}
 --- !u!212 &212000010687221678
 SpriteRenderer:
   m_ObjectHideFlags: 1

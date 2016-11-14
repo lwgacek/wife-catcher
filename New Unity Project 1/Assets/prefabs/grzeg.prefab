@@ -228,6 +228,7 @@ MonoBehaviour:
   punkt: {fileID: 8300000, guid: 9c07af5892e95924fb907779ec26633b, type: 3}
   error: {fileID: 8300000, guid: 3b3b5f6d9c1ce924188f9d5b0c64ea75, type: 3}
   skok: {fileID: 0}
+  slow: {fileID: 0}
 --- !u!212 &212000011912964262
 SpriteRenderer:
   m_ObjectHideFlags: 1

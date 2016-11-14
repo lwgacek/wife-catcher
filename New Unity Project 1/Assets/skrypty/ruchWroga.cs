@@ -11,6 +11,6 @@ public class ruchWroga : MonoBehaviour {
 		czas -= Time.deltaTime;
 		if (czas <= 0)
 			Destroy (gameObject);
-		
-	}
+        
+    }
 }

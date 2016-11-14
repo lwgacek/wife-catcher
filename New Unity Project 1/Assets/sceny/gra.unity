@@ -465,6 +465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timePowerup: {fileID: 1000012562620600, guid: 615813378a194c247a61236e61f784ab,
     type: 2}
+  slowPowerup: {fileID: 1000013667157870, guid: f34173b8c2f24214da148d19c38cf77b,
+    type: 2}
 --- !u!1 &1281622922
 GameObject:
   m_ObjectHideFlags: 0

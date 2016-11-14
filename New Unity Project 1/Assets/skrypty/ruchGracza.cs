@@ -9,40 +9,71 @@ public class ruchGracza : MonoBehaviour
 	public AudioClip punkt;
 	public AudioClip error;
 	public AudioClip skok;
+    public AudioClip slow;
 	private AudioSource sorce;
 	public static float czas;
 	public static float zycie;
 	float czasskoku;
-	float skokopuznienie = 0.84f;
+	float skokopuznienie;
 	float timerskoku = 0;
 	Animation animacja;
 	Vector3 ruch;
 	bool skacze = false;
+	static public bool buletTime = false;
+	float buletimeTime;
+	float bulettimeTrwanie = 2.5f;
+	//float bulettimeTimer = 0;
+
 
 	void Start ()
 	    {
 		    czas = opcjeSlidery.czass;
 		    zycie = opcjeSlidery.zycia;
 		    sorce = GetComponent<AudioSource> ();
-		    animacja = GetComponent<Animation> ();
+			animacja = GetComponent<Animation>();
             Cursor.visible = false;
         }
 
 	void Skok()
-	    { 
-		    skacze = true;
-		    gameObject.layer = 11;
-		    sorce.PlayOneShot (skok);
-		    czasskoku = 0.84f;
-		    animacja.Play ("misza");
-	    }
+	{ 
+		skacze = true;
+		gameObject.layer = 11;
+		sorce.PlayOneShot (skok);
+		if (buletTime == true) 
+			{
+				czasskoku = 0.5f;
+			} 
+		else
+			{
+				czasskoku = 1.0f;
+			}
+		animacja.Play ("misza");
+		if (buletTime == true) 
+			{
+			animacja.Play("miszaslow");
+			}
+	}
+	    
 
 	void Koniecskoku()
 	    {
 		    gameObject.layer = 10;
 		    skacze = false;
 	    }
+
+	void BuletTime()
+		{
+		buletTime = true;
+		buletimeTime = bulettimeTrwanie;
+		Time.timeScale = 0.5f;
+		}
 		
+	void BuletTimeKoniec()
+		{
+		Time.timeScale = 1f;
+		buletTime = false;
+		}
+
 	void OnTriggerEnter2D()
         {
 		    sorce.PlayOneShot (punkt);
@@ -59,25 +90,42 @@ public class ruchGracza : MonoBehaviour
 			        sorce.PlayOneShot (error);
 			        zycie -= 1;
 		        }
-            if (col.gameObject.tag == "powerup")
+            if (col.gameObject.tag == "timePowerUp")
                 {
                     czas += 5;
                     sorce.PlayOneShot(punkt);
                 }
-		}
+            if (col.gameObject.tag == "slowPowerUp")
+                {
+                    sorce.PlayOneShot(slow);
+					BuletTime ();
+                }
+    }
 
 	void Update ()
 	    {
+		if (buletTime == true) {
+			skokopuznienie = 0.50f;
+		}
+			else
+			{
+			skokopuznienie = 1.0f;
+		}
 		    ruch = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical") * vs, 0);
-            if (skacze == false)
-                {
-                    transform.position += ruch * speed * Time.deltaTime;
-                }
-            else
-                {
-                    transform.position += ruch * 4 * Time.deltaTime;
-                }
+		if (skacze == false && buletTime == false)
+			transform.position += ruch * speed * Time.deltaTime;
 
+		if (skacze == true && buletTime == false)
+			transform.position += ruch * 6 * Time.deltaTime;
+
+		//if (skacze == true && buletTime == true)
+			//transform.position += ruch * Time.deltaTime;
+
+		if (buletTime == true) 
+			transform.position += ruch * speed * 2 * Time.deltaTime;
+		
+                
+      
 		    if (Input.GetKey (KeyCode.Escape))
 			    SceneManager.LoadScene ("menu");
 		
@@ -96,5 +144,9 @@ public class ruchGracza : MonoBehaviour
             czasskoku -= Time.deltaTime;
             if (czasskoku <= 0)
 			    Koniecskoku ();
+
+			buletimeTime -= Time.deltaTime;
+			if (buletimeTime <= 0)
+				BuletTimeKoniec();
         }
 }
