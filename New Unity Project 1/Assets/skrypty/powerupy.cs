@@ -3,8 +3,9 @@ using System.Collections;
 
 public class powerupy : MonoBehaviour {
 
-    public GameObject timePowerup;
-    public GameObject slowPowerup;
+	public GameObject[] powerUpy;
+    //public GameObject timePowerup;
+    //public GameObject slowPowerup;
     float czas = 10.0f;
 
 	void Start () {
@@ -14,7 +15,7 @@ public class powerupy : MonoBehaviour {
 
     void TimePowerUp() {
         //Instantiate(timePowerup, new Vector2 (Random.Range(-8, 8), 6), Quaternion.identity);
-        Instantiate(slowPowerup, new Vector2(Random.Range(-8, 8), 6), Quaternion.identity);
+		Instantiate(powerUpy[Random.Range(0,2)], new Vector2(Random.Range(-8, 8), 7), Quaternion.identity);
     }
        
 	

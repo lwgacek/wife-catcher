@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class CzasiWynik : MonoBehaviour {
 
-	public Text czasZycie;
+	public Text czas;
+	public Text zycia;
 	public Text scoreHighscore;
 
 	public static int score; 
@@ -19,8 +20,9 @@ public class CzasiWynik : MonoBehaviour {
 
 	void Update ()
 	{
-		czasZycie.text = "Czas: " + Mathf.RoundToInt(ruchGracza.czas) + "\nZycie: " + ruchGracza.zycie;
-		scoreHighscore.text = "Wynik: " + score + "\nBest: " +hscore;
+		czas.text = "Czas: " + Mathf.RoundToInt (ruchGracza.czas);
+		scoreHighscore.text = "Wynik: " + score;
+		zycia.text = "Życia: " + ruchGracza.zycie;
 
 	
 

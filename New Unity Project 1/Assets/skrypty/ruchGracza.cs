@@ -22,7 +22,7 @@ public class ruchGracza : MonoBehaviour
 	static public bool buletTime = false;
 	float buletimeTime;
 	float bulettimeTrwanie = 2.5f;
-	//float bulettimeTimer = 0;
+
 
 
 	void Start ()
@@ -81,13 +81,17 @@ public class ruchGracza : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D col)
 	    {
-            if (CzasiWynik.score > 0)
+
+		if ( col.gameObject.tag == "granice")
+			return;
+	
+
+		if (col.gameObject.tag == "wrog")
                 {
-                CzasiWynik.score -= 1;
-                }
-		    if (col.gameObject.tag == "wrog")
-                {
-			        sorce.PlayOneShot (error);
+			if (CzasiWynik.score > 0) {
+				CzasiWynik.score -= 1;
+			}
+					sorce.PlayOneShot (error);
 			        zycie -= 1;
 		        }
             if (col.gameObject.tag == "timePowerUp")
@@ -112,16 +116,17 @@ public class ruchGracza : MonoBehaviour
 			skokopuznienie = 1.0f;
 		}
 		    ruch = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical") * vs, 0);
+
 		if (skacze == false && buletTime == false)
 			transform.position += ruch * speed * Time.deltaTime;
 
 		if (skacze == true && buletTime == false)
 			transform.position += ruch * 6 * Time.deltaTime;
 
-		//if (skacze == true && buletTime == true)
-			//transform.position += ruch * Time.deltaTime;
+		if (skacze == true && buletTime == true)
+			transform.position += ruch * 12 * Time.deltaTime;
 
-		if (buletTime == true) 
+		if (skacze == false && buletTime == true) 
 			transform.position += ruch * speed * 2 * Time.deltaTime;
 		
                 
